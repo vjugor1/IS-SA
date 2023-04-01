@@ -33,10 +33,7 @@ def solve_glpk(
     x = cp.Variable(scenario_Gamma.shape[1])
     x.value = x0
     obj = cp.Minimize(cp.sum(cp.multiply(x, c)))
-    constraints = [
-        cp.sum(cp.multiply(scenario_Gamma[i], x)) <= scenario_Beta[i]
-        for i in range(scenario_Gamma.shape[0])
-    ]
+    constraints = [scenario_Gamma @ x <= scenario_Beta]
     prob = cp.Problem(obj, constraints)
     prob.solve(
         solver=cp.GLPK, verbose=False, glpk={"msg_lev": "GLP_MSG_OFF"}, warm_start=True
