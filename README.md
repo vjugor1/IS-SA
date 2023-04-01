@@ -23,12 +23,11 @@ One dimensional code illustration of the proposed approach. Here a simple to cat
 A demonstration of how a scenario approximation is formed for one dimensional problem is provided in this noteobook. Step-by-step, the initial deterministic feasibility set is defined, then samples, then scenario approximation using CVXPY, and, finally, the solution obtaining.
 ### `GridData.ipynb`
 Demonstrates how to use griddata parser. This parser scraps equivalent formulation of DC-OPF in term of inequalities only for the corresponding grid. In other words, one obtains formulation
-$$
-\begin{aligned}
-min_x ~ &c^T p\\
-s.t. ~ & Wp \leq b
-\end{aligned}
-$$
+
+
+![image](https://user-images.githubusercontent.com/18471262/229287922-208d8788-e6c3-4b95-b6c3-fd0e10741cd5.png)
+
+
 which is equivalent to the formulation with equality constraints that is used inside of `pandapower`. One can pass `check_pp_vs_new_form=True` to check that the solutions of the reformulation above are idential with `pandapower`'s.
 ### `ImportanceSampler.ipynb`
 Demonstration how to work with importance sampling via `ConditionedPolytopeGaussianSampler` class. Demonstrates that all of the samples generated are outside of the polytope specified.
